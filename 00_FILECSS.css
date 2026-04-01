@@ -1,0 +1,273 @@
+body{
+    height: 2000px;
+}
+
+:root{
+    --pink: rgb(253, 191, 191);
+    --black: rgb(23, 23, 23);
+    --red: rgb(255, 54, 54);
+}
+
+/* nav-bar */
+.navbar-custom{
+    z-index: 1;
+}
+
+.collapse-custom{
+    display: flex;
+    justify-content: end;
+}
+
+.navbar-brand{
+    height: 25px;
+    width: 25px;
+    background-color: var(--pink);
+    border-radius: 50%;
+}
+
+.nav-link{
+    font-size: 12px;
+    font-weight: 500;
+    width: 100px;
+}
+
+.navbar-icon-custom{
+    height: 20px;
+    width: 20px;
+    background-color: none;
+    border-radius: 50%;
+    border: 2px solid var(--pink);
+}
+
+.button-collapse-custom{
+    border: none;
+}
+
+.navbar-icon-custom:active{
+    background-color: var(--pink);
+    border: none;
+}
+
+.button-collapse-custom:not(.collapsed){
+    box-shadow: none;
+}
+
+.button-collapse-custom:focus{
+    box-shadow: none;
+}
+
+.nav-link:hover{
+    color: var(--pink);
+}
+
+/* header */
+.header-container{
+    overflow-x: hidden;
+}
+
+.title{
+    white-space: nowrap;
+}
+
+.title-custom{
+    font-family: "Host Grotesk", sans-serif;
+    font-weight: 600;
+    color: var(--red);
+    font-size: 30vh;
+    line-height: 1;
+    white-space: nowrap;
+}
+
+.sottotitolo-custom{
+    font-family: "Google Sans Flex", sans-serif;
+    font-weight: 400;
+    color: var(--black);
+    font-size: 2.5vh;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
+
+.imagetop-box{
+    height: 60vh;
+    width: 100%;
+    padding: 35px 0px 0px 0px;
+}
+
+.imagetop{
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+
+.pinkheader-box{
+    background-color: var(--pink);
+    min-width: 5vh;
+    padding: 10px 0px 10px 0px;
+}
+
+@media screen and (max-width: 1100px){
+    .title-custom{
+        font-size: 20vh;
+    }
+    .sottotitolo-custom{
+        display: none;
+    }
+    .imagetop-box{
+        padding-top: 10px;
+        height: 35vh;
+    }
+    .pinkheader-box{
+        padding: 20px 0px 20px 0px;
+    }
+}
+ 
+/* pinkheader */
+.whowas-custom{
+    font-family: "Libre Bodoni", serif;
+    font-size: 7vw;
+    font-weight: 800;
+    color: var(--red);
+    display: flex;
+    align-items: center;
+    text-align: center;
+    justify-content: end;
+}
+
+.scopri-custom{
+    font-family: "Host Grotesk", sans-serif;
+    font-size: 1.5vw;
+    font-weight: 400;
+    color: var(--red);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.about-custom{
+    font-family: "Google Sans Flex", sans-serif;
+    font-size: 7vw;
+    font-weight: 600;
+    color: var(--red);
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    text-align: center;
+}
+
+.selected-custom{
+    font-family: "Google Sans Flex", sans-serif;
+    font-size: 7vw;
+    font-weight: 400;
+    color: var(--red);
+    display: flex;
+    align-items: center;
+    justify-content: end;
+    text-align: center;
+}
+
+.artworks-custom{
+    font-family: "Libre Bodoni", serif;
+    font-size: 7vw;
+    font-weight: 800;
+    color: var(--red);
+    display: flex;
+    align-items: center;
+    text-align: center;
+    justify-content: start;
+}
+
+.blog-custom{
+    font-family: "Libre Bodoni", serif;
+    font-size: 7vw;
+    font-weight: 900;
+    color: var(--red);
+    display: flex;
+    align-items: center;
+    text-align: center;
+    justify-content: end;
+}
+
+.time-custom{
+    font-family: "Google Sans Flex", sans-serif;
+    font-size: 7vw;
+    font-weight: 600;
+    color: var(--red);
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    text-align: center;
+}
+
+/* News */
+.article-custom{
+    font-family: "Google Sans Flex", sans-serif;
+    font-size: 4vw;
+    font-weight: 600;
+    color: var(--black);
+    padding: 40px 0px 0px 20px;
+}
+
+.linea{
+    border: none;
+    height: 2px;
+    background-color: var(--black);
+    width: 100%;
+    margin: 2% 0% 2% 0%;
+}
+
+.articletitle-custom{
+    padding: 2% 0% 2% 4%;
+}
+.titlearticle{
+    font-family: "Google Sans Flex", sans-serif;
+    font-size: 3vw;
+    font-weight: 600;
+    color: var(--black);
+}
+
+.sottotitlearticle{
+    font-family: "Google Sans Flex", sans-serif;
+    font-size: 1vw;
+    font-weight: 400;
+    color: var(--black);
+}
+
+.articletext-custom{
+    font-family: "Google Sans Flex", sans-serif;
+    font-size: 1vw;
+    font-weight: 400;
+    color: var(--black);
+    padding: 0% 4% 0% 8%;
+    display: flex;
+    align-items: center;
+}
+
+
+@media screen and (max-width: 1100px){
+    .whowas-custom{
+        font-size: 5vw;
+    }
+    .scopri-custom{
+        display: none;
+    }
+    .whowas-custom, .about-custom, .selected-custom, .artworks-custom, .blog-custom, .time-custom{
+        padding:0px 80px 0px 70px;
+        margin: 0px;
+    }
+    .article-custom{
+        font-size: 6vw;
+        padding: 20px 0px 0px 0px;
+    }
+    .titlearticle{
+        font-size: 5vw;
+    }
+    .sottotitlearticle{
+        font-size: 2vw;
+    }
+    .articletext-custom{
+        font-size: 2vw;
+        padding: 0% 4% 0% 4%;
+    }
+}
