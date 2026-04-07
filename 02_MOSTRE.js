@@ -21,17 +21,6 @@ let x = 0;
     // LANCIO FUNZIONE
     anima();
 
-// Chiamata asincrona che permette di accedere ad un determinato database di oggetti che possiamo prelevare e utilizzarli
-
-// .json - javascript object notification - formato per contenere dati complessi convertito in scringa. Quindi dobbiamo prendere il contenuto di .json e convertirlo in un oggetto
-
-// CHIAMATA ASINCRONA
-// fetch(): collega il .json e da esso estrarne il dato sotto forma di "promis".
-// .then(): metodo che permette di convertire la "promis" nel dato strutturale (oggetto) e di poterlo utilizzare come tale su JS. 
-// un .then() lo converte e il secondo punto .then() lo utilizza
-
-// Possiamo collegarci anche a .json online attraverso API (chiavi che ci permettono di raggiungere un .json online)
-
 // PASSAGGI
 // 1. fetch(): mi collego al .json e ne ottendo una "Promise"
 // 2. then(): converte la Promise in un dato strutturale
@@ -43,7 +32,6 @@ let x = 0;
 
 // quindi:
 // 1. fetch(link json).then((parametro Promise)=>converti Promise).then((Promise convertito)=>fai qualcosa ovvero tutta la logica per utilizzarlo)
-// Consideriamo che all'interno di fetch siamo un uno scope locale
 
 fetch(`./annunci.json`).then((response)=> response.json()).then((data)=>{
      console.log(data);
@@ -59,25 +47,13 @@ fetch(`./annunci.json`).then((response)=> response.json()).then((data)=>{
    
 // CREARE LE CATEGORIE   
     function radioCreate(){
-        // array clone di data con solo catgorie
+        // array clone di data con solo categorie
         let categories = data.map((annuncio)=>annuncio.category);
         console.log(categories);
         
-        // METODO 1 PER EVITARE RIPETIZIONI
-        // variabile con un array senza ripetizione di annunci
-        // let uniqueCategories = [];
-        // per ogni categoria dell'array clone se non è presente in uniqueCategories inseriscilo. Nel momento in cui incontra una categoria simili capisce che è già presente perché inserito prima.
-        // categories.forEach(category => {
-            // se non include la categoria
-        // if( !uniqueCategories.includes(category) ){
-        // uniqueCategories.push(category)
-        //     }
-        // });
-        
+        // METODO PER EVITARE RIPETIZIONI
         // set(): classe che mi restituisce, partendo da un array, un nuovo oggetto di tipo Set che contiene solo valori univoci
-        
         // la variabile uniqueCategories contiene un Set (non un array) derivante dall'Array clone con valori univoci
-        
         // essendo un Set e non un Array non posso sfruttare i suoi metodi tipo forEach. Quindi devo convertirlo in Array con Array.from()
         
         let uniqueCategories = Array.from(new Set(categories));
@@ -134,17 +110,8 @@ fetch(`./annunci.json`).then((response)=> response.json()).then((data)=>{
 
     // FUNZIONE FILTRO PER CATEGORIA
     function filterByCategory(categoria){
-        // array clone di data ma con elemento nel suo interno dovranno soddisfrare la condizione per la quale la loro category sia uguale alla categoria che stiamo passando alla funzione
-
-        // con filter passi in questo array clone gli array filtrati con gli annunci con la categoria che ho scelto
-
-        // per far funzionare anche il tasto "tutte le categorie" IF categoria è diversa da id "All" passami l'array con i filtri altrimenti mostrami l'array data principale
         if(categoria != `All`){
-            // .filter e non .map perché con .filter mi seleziona solo determinati elementi dell'array con quella caterogia mentre .map non può essere selettivo ma trasforma ogni elemento
-        let filtered = data.filter((annuncio)=> annuncio.category == categoria);
-            // lanciami la funzione di showCard dentro filtered
-            // prima però svuotare il wrapper e poi mi fai il foreach
-            // ma qui invece l'array di riferimento è filtered
+            let filtered = data.filter((annuncio)=> annuncio.category == categoria);
         // LANCIO FUNZIONE INTERNA ALLA FUNZIONE PERCHE' NON AL CARICAMENTO DELLA PAGINA MA QUANDO ATTIVO LA FUNZIONE
         showCard(filtered);
         }else{
@@ -166,8 +133,6 @@ fetch(`./annunci.json`).then((response)=> response.json()).then((data)=>{
     // FILTRO PER PREZZO
         // SETTAGGIO INPUT
     function setPriceInput(){
-        // Dopo aver catturato l'input range voglio settare come proprietà max dello stesso il valore più altro tra i price di ogni prodotto. Per farlo avrò bisogno di un array che contenga solo i prezzi (ecco perché utilizziamo .map perché si lavora su tutti gli elementi senza apportare modifiche al loro numero). A quel punto lo ordino in maniera decrescente e prendermi l'elemento l'elemento con il valore più alto.
-        // array con solo prezzi ma sono stringhe. Per convertire in numeri basta inserire un + (lezione 2 di js) o Number(annuncio.price)
         let prices = data.map((annuncio)=> +annuncio.price);
         // ordiniamo in ordine crescente
         prices.sort((a, b)=> a - b);
@@ -186,14 +151,11 @@ fetch(`./annunci.json`).then((response)=> response.json()).then((data)=>{
 
         // FILTRO PREZZO IN BASE AL VALUE DEL RANGE
     function filterByPrice(){
-    // fai un array da data filtrato con tutti gli annunci con price minore o uguale al value di priceInput (mi raccomando al + )
     let filtered = data.filter((annuncio)=> +annuncio.price <= priceInput.value);
-    // a quel punto mostrami filtered 
     showCard(filtered);
 }
 
     // EVENTO PER FILTRO PREZZO
-    // utilizziamo evento input lanciamo filterByPrice
     priceInput.addEventListener(`input`, ()=>{
         priceValue.innerHTML = priceInput.value;
         filterByPrice();
@@ -201,11 +163,7 @@ fetch(`./annunci.json`).then((response)=> response.json()).then((data)=>{
 
         // FILTRO PER PAROLA
     function filterByWord(parola){
-        // filtra gli elementi di data in modo tale che nel loro name sia incluso la parola che stiamo passando "includes" 
-
-        // filtra gli annunci con la parola indicata nell'evento
         let filtered = data.filter((annuncio)=>annuncio.name.toLowerCase().includes(parola.toLowerCase()));
-        // fatto questo lanciami 
         showCard(filtered);
     }
     
@@ -219,7 +177,6 @@ fetch(`./annunci.json`).then((response)=> response.json()).then((data)=>{
 
     function globalFilter(){
         let filteredByCategory = filterByCategory();
-        // senza return è undefined. Quindi le funzioni dei filtri non devono invocare più showCards ma devono invocare l'array filtered per poterlo sfruttare nella funzione global
     }
 
 });
