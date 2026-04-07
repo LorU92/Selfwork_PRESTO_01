@@ -59,6 +59,7 @@
 /* header */
 .header-container{
     overflow-x: hidden;
+    overflow-y: hidden;
 }
 
 .title{
@@ -75,6 +76,16 @@
 }
 
 .sottotitolo-custom{
+    font-family: "Google Sans Flex", sans-serif;
+    font-weight: 400;
+    color: var(--black);
+    font-size: 2.5vh;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
+
+.sottotitolo-custom-mostre{
     font-family: "Google Sans Flex", sans-serif;
     font-weight: 400;
     color: var(--black);
@@ -350,4 +361,27 @@
         align-items: center;
 
     }
+}
+
+/* CARD */
+.cardcustom{
+    width:300px;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.img-card{
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    width: 100%;
+}
+
+.accordion-item{
+    width: 80%;
+    margin: 0% auto 0% auto;
 }
